@@ -15,15 +15,16 @@ function displayBikes(response) {
   }
 }
 
-async function makeApiCall(location) {
-  const response = await BikeService.getBikes(location);
+async function makeApiCall(location, color) {
+  const response = await BikeService.getBikes(location, color);
   displayBikes(response);
 }
 
 $(document).ready(function() {
   $('#bike-location').click(function() {
     let location = $('#location').val();
-    makeApiCall(location);
+    let color = $('#color').val();
+    makeApiCall(location, color);
   });
 });
 
