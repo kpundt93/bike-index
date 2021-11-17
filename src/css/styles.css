@@ -1,4 +1,34 @@
 .bike-img {
-  max-width: 300px;
+  max-width: 400px;
   height: auto;
+  border: 1px solid black;
+}
+
+body {
+  background-color: rgb(165, 216, 178);
+}
+
+hr {
+  border: 1px black solid;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  padding: 1em;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+button {
+  display: block;
+  margin-top: 1em;
 }
