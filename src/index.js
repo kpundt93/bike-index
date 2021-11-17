@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import BikeService from "./js/bike-service";
 
+import bike from './assets/images/stock-bike.jpg';
+
 function displayBikes(response) {
   if (response.bikes) {
     let output = buildBikeString(response);
@@ -28,11 +30,10 @@ $(document).ready(function() {
 function buildBikeString(response) {
   let htmlToDisplay = [];
   for (let i=0; i < response.bikes.length; i++) {
-    console.log(response.bikes[i].stolen_location);
     if (response.bikes[i].large_img !== null) {
-      htmlToDisplay.push(`<img src=${response.bikes[i].large_img} class='bike-img'>`);
+      htmlToDisplay.push(`<img src= ${response.bikes[i].large_img}  class='bike-img'>`);
     } else {
-      htmlToDisplay.push(`<img src="./src/assets/images/stock-bike.jpg" class='bike-img'>`);
+      htmlToDisplay.push(`<img src= ${bike} class="bike-img">`);
     }
     htmlToDisplay.push(`<p>Stolen location: ${response.bikes[i].stolen_location}</p>`);
     htmlToDisplay.push(`<p>Colors: ${response.bikes[i].frame_colors}</p>`);
@@ -41,6 +42,5 @@ function buildBikeString(response) {
     htmlToDisplay.push(`<p>Serial number: ${response.bikes[i].serial}</p>`);
     htmlToDisplay.push('<hr>');
   }
-  console.log(htmlToDisplay);
   return htmlToDisplay.join('');
 }
