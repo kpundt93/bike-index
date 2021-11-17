@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>Get Stolen Bike Information</h1>
+    <h1>Bike Index</h1>
+    <h2>Search for stolen bikes</h2>
     <label for="location">Enter a location:</label>
     <input id="location" type="text">
     <label for="color">Choose a color:</label>
@@ -28,7 +29,9 @@
       <option value="yellow">Yellow</option>
       <option value="stickers">Stickers</option>
     </select>
-    <button class="btn btn-success" id="bike-location">Search</button>
+    <div id="button">
+      <button class="btn btn-light" id="bike-location">Search</button>
+    </div>
     <div class="show-bikes"></div>
     <div class="show-errors"></div>
   </div>

@@ -39,7 +39,9 @@ function buildBikeString(response) {
     }
     htmlToDisplay.push(`<p>Stolen location: ${response.bikes[i].stolen_location}</p>`);
     htmlToDisplay.push(`<p>Colors: ${response.bikes[i].frame_colors}</p>`);
-    htmlToDisplay.push(`<p>Description: ${response.bikes[i].description}</p>`);
+    if (response.bikes[i].description !== null && response.bikes[i].description !== "") {
+      htmlToDisplay.push(`<p>Description: ${response.bikes[i].description}</p>`);
+    }
     htmlToDisplay.push(`<p>Brand: ${response.bikes[i].manufacturer_name}</p>`);
     htmlToDisplay.push(`<p>Serial number: ${response.bikes[i].serial}</p>`);
     htmlToDisplay.push('<hr>');
@@ -62,6 +64,6 @@ function buildBikeString(response) {
       maxCount = map[temp];
     }
   }
-  htmlToDisplay.unshift(`<p>The most commonly stolen from manufactorer is ${max} with ${maxCount} stolen bikes.</p><hr>`);
+  htmlToDisplay.unshift(`<p>The most commonly stolen from manufacturer is ${max} with ${maxCount} stolen bikes.</p><hr>`);
   return htmlToDisplay.join('');
 }
