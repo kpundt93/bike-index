@@ -30,6 +30,7 @@ $(document).ready(function() {
 
 function buildBikeString(response) {
   let htmlToDisplay = [];
+  let manufactorers = [];
   for (let i=0; i < response.bikes.length; i++) {
     if (response.bikes[i].large_img !== null) {
       htmlToDisplay.push(`<img src= ${response.bikes[i].large_img}  class='bike-img'>`);
@@ -42,6 +43,25 @@ function buildBikeString(response) {
     htmlToDisplay.push(`<p>Brand: ${response.bikes[i].manufacturer_name}</p>`);
     htmlToDisplay.push(`<p>Serial number: ${response.bikes[i].serial}</p>`);
     htmlToDisplay.push('<hr>');
+    manufactorers.push(response.bikes[i].manufacturer_name);
   }
+  manufactorers.sort();
+  let map = {};
+  let max = manufactorers[0];
+  let maxCount = 1;
+  for (let i = 0; i < manufactorers.length; i++) {
+    let temp = manufactorers[i];
+    if(map[temp] === undefined) {
+      map[temp] = 1;
+    }
+    else {
+      map[temp] += 1;
+    }
+    if (map[temp] > maxCount) {
+      max = temp;
+      maxCount = map[temp];
+    }
+  }
+  htmlToDisplay.unshift(`<p>The most commonly stolen from manufactorer is ${max} with ${maxCount} stolen bikes.</p><hr>`);
   return htmlToDisplay.join('');
 }
