@@ -1,4 +1,4 @@
-import { ExampleClass } from "../src/project";
+import { ExampleClass } from "../src/js/project";
 
 describe('ExampleClass', () => {
 
